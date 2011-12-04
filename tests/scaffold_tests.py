@@ -56,6 +56,18 @@ def test_create_setup_file():
     
     assert_file_exists(project_root, None, "setup.py")
 
+def test_create_all_files():
+    """Bring all of the individual file tests together under one roof..."""
+    project_name = "mongodb-is-webscale-webscale-i-tells-ya"
+    projectfolders.create_folders(project_name, target_dir) #Create the project folders
+    project_root = projectfolders.create_path(target_dir, project_name)
+    projectfiles.create_files(project_name, target_dir) #Oh snap, notice how we're using target_dir? This method creates a project root internally.
+    
+    assert_file_exists(project_root, "tests", "__init__.py")
+    assert_file_exists(project_root, project_name, "__init__.py")
+    assert_file_exists(project_root, "tests", "%s_tests.py" % project_name)
+    assert_file_exists(project_root, None, "setup.py")
+
 def assert_folder_exists(target_dir, sub_dir):
     """Tests to see if a particular folder exists"""
     assert os.path.exists(os.path.join(target_dir, sub_dir))
@@ -64,4 +76,5 @@ def assert_file_exists(target_dir, sub_dir, filename):
     """Tests to see if a particular file exists or not"""
     if sub_dir == None: #If we don't have a sub-directory
         assert os.path.exists(os.path.join(target_dir, filename))
-    assert os.path.exists(os.path.join(os.path.join(target_dir, sub_dir), filename))
+    else:
+        assert os.path.exists(os.path.join(os.path.join(target_dir, sub_dir), filename))
