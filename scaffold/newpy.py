@@ -3,6 +3,7 @@ in Learn Python the Hard Way Exercise #46 (http://learnpythonthehardway.org/book
 
 import argparse
 import projectfolders
+import projectfiles
 import os
 
 parser = argparse.ArgumentParser(description='Scaffolding tool for simple Python projects', epilog='Report any issues to [Github url]')
@@ -17,5 +18,6 @@ if(args.dir != None): #If the user set an explicit output directory
     cur_dir = args.dir[0]
 
 projectfolders.create_folders(args.project[0], cur_dir) #Creates all of the project folders we need
+projectfiles.create_files(args.project[0], cur_dir) #Creates all of the project files we need
 
 
