@@ -27,7 +27,7 @@ def make_folder(path, prefix = ''):
     if(os.path.exists(path) == False): #If we were unable to make the directory for some reason...
         raise IOError(000, 'Unable to create root directory %s. Unknown error!' % path, '')
     
-    print "create: %s %s" % (prefix, path)
+    print "create: %s %s" % (prefix, os.path.abspath(path))
     
 def create_path(current_directory, new_folder_name):
     """Gets the absolute path of the new folder we're going to create"""
