@@ -1,0 +1,4 @@
+include license.txt
+include readme.textile
+recursive-include scaffold *
+recursive-include doc *
