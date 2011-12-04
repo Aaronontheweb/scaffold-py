@@ -48,6 +48,14 @@ def test_create_test_files():
     
     assert_file_exists(project_root, "tests", "%s_tests.py" % project_name)
 
+def test_create_setup_file():
+    project_name = "hipster-tears"
+    projectfolders.create_folders(project_name, target_dir) #Create the project folders
+    project_root = projectfolders.create_path(target_dir, project_name)
+    projectfiles.write_setup(project_name, project_root)
+    
+    assert_file_exists(project_root, None, "setup.py")
+
 def assert_folder_exists(target_dir, sub_dir):
     """Tests to see if a particular folder exists"""
     assert os.path.exists(os.path.join(target_dir, sub_dir))
