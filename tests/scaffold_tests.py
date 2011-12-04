@@ -1,5 +1,6 @@
+
 from nose.tools import *
-import NAME
+import scaffold
 
 def setup():
     print "SETUP!"
@@ -9,3 +10,4 @@ def teardown():
 
 def test_basic():
     print "I RAN!"
+    

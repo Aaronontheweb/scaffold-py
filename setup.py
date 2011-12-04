@@ -1,3 +1,4 @@
+
 try:
     from setuptools import setup
 except ImportError:
@@ -11,7 +12,7 @@ config = {
     'author_email': 'My email.',
     'version': '0.1',
     'install_requires': ['nose'],
-    'packages': ['NAME'],
+    'packages': ['scaffold'],
     'scripts': [],
     'name': 'projectname'
 }
