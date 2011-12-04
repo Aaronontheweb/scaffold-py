@@ -18,5 +18,11 @@ Each project you scaffold will create the following directory structure:
 
 Both @setup.py@ and @[projectname]_tests.py@ are set up automatically to reference your project name as a module. The rest is up to you!
 
+h2. License
+
+Licensed under Apache 2.0 - see license.txt for details.
+
+h2. Contribution
+
 I'm not the most experienced Python programmer on the planet, so patches are most certainly welcome :)
 -"Aaron Stannard":http://www.aaronstannard.com/
