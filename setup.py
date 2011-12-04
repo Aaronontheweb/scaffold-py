@@ -10,7 +10,7 @@ config = {
     'url': 'https://github.com/Aaronontheweb/scaffold-py',
     'download_url': 'https://github.com/Aaronontheweb/scaffold-py/zipball/master',
     'author_email': 'aaron@stannardlabs.com',
-    'version': '0.1',
+    'version': '0.1.1',
     'install_requires': ['nose'],
     'packages': ['scaffold'],
     'scripts': [],

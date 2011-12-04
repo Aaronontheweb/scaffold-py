@@ -20,7 +20,9 @@ Both @setup.py@ and @[projectname]_tests.py@ are set up automatically to referen
 
 h2. Installing Scaffold
 
-PyPi package destination coming in a few minutes :p
+You can view the scaffold package on PyPi here: http://pypi.python.org/pypi/Scaffold/0.1.1
+
+To install, simply use @pip install scaffold@
 
 h2. Running Scaffold
 
