@@ -18,6 +18,14 @@ Each project you scaffold will create the following directory structure:
 
 Both @setup.py@ and @[projectname]_tests.py@ are set up automatically to reference your project name as a module. The rest is up to you!
 
+h2. Running Scaffold
+
+Scaffold installs itself as an executeable Python script, so just enter this on your command line:
+
+<pre>python -m scaffold -p "projectname" [-d {base directory to create the project from}]</pre>
+
+If you don't specify a @-d@ flag, scaffold will assume that you want to create your project skeleton in your current working directory.
+
 h2. License
 
 Licensed under Apache 2.0 - see license.txt for details.
