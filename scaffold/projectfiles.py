@@ -8,7 +8,7 @@ def create_files(project_name, root_dir):
     
     write_setup(project_name, root_dir)
     write_inits(project_name, root_dir)
-    
+    write_tests(project_name, root_dir)
 
 def write_setup(project_name, root_dir):
     """Writes the default setup.py file"""
@@ -19,6 +19,16 @@ def write_setup(project_name, root_dir):
     setup_file.write(setup_content)
     setup_file.close()
     create_file(setup_path, " +++")
+    
+def write_tests(project_name, root_dir):
+    """Writes our tests/NAME_tests.py file to disk"""
+    test_path = get_file_path(root_dir, "tests", "%s_tests.py" % project_name) #Get the path for setup.py
+    test_content = get_test_text(project_name)
+    
+    test_file = open(test_path, 'w')
+    test_file.write(test_content)
+    test_file.close()
+    create_file(test_path)
 
 def write_inits(project_name, root_dir):
     """Creates all of the __init__.py files necessary for the project skeleton"""
@@ -71,3 +81,20 @@ config = {
 
 setup(**config)
 """ % project_name
+
+def get_test_text(project_name):
+    """Again, quite ghetto and can probably be improved, but it works"""
+    
+    return """
+from nose.tools import *
+import %s
+
+def setup():
+    print "SETUP!"
+
+def teardown():
+    print "TEAR DOWN!"
+
+def test_basic():
+    print "I RAN!"
+    """ % project_name
