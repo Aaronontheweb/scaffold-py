@@ -1,1 +1,4 @@
 *.pyc
+build/*
+Scaffold.egg-info/*
+dist/*
