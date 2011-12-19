@@ -1,6 +1,6 @@
 h1. Scaffold for Python
 
-Inspired by "Zed Shaw":http://www.zedshaw.com/'s recommended Python project structure from "Learn Python the Hard Way":http://learnpythonthehardway.org/ exercise "#46":http://learnpythonthehardway.org/book/ex46.html.
+Inspired by "Zed Shaw's":http://www.zedshaw.com/ recommended Python project structure from "Learn Python the Hard Way":http://learnpythonthehardway.org/ exercise "#46":http://learnpythonthehardway.org/book/ex46.html.
 
 Each project you scaffold will create the following directory structure:
 
