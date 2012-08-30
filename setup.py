@@ -14,7 +14,12 @@ config = {
     'install_requires': ['nose'],
     'packages': ['scaffold'],
     'scripts': [],
-    'name': 'Scaffold'
+    'name': 'Scaffold',
+    'entry_points': {
+        'console_scripts': [
+            'pyscaffold = scaffold.__main__:main',
+        ]
+    }
 }
 
 setup(**config)
