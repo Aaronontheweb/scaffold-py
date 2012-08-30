@@ -17,10 +17,12 @@ cur_dir = os.getcwd() #Get the current working directory as our default root pro
 if(args.dir != None): #If the user set an explicit output directory
     cur_dir = args.dir[0]
 
-try:
-    projectfolders.create_folders(args.project[0], cur_dir) #Creates all of the project folders we need
-    projectfiles.create_files(args.project[0], cur_dir) #Creates all of the project files we need
-except IOError as (errno, strerror):
-    print strerror
+def main():
+    try:
+        projectfolders.create_folders(args.project[0], cur_dir) #Creates all of the project folders we need
+        projectfiles.create_files(args.project[0], cur_dir) #Creates all of the project files we need
+    except IOError as (errno, strerror):
+        print strerror
 
-
+if __name__ == "__main__":
+    main()
