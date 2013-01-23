@@ -22,7 +22,7 @@ def write_setup(project_name, root_dir):
     
 def write_tests(project_name, root_dir):
     """Writes our tests/NAME_tests.py file to disk"""
-    test_path = get_file_path(root_dir, "tests", "%s_tests.py" % project_name) #Get the path for setup.py
+    test_path = get_file_path(root_dir, "tests", "{project_name}_tests.py".format(project_name=project_name)) #Get the path for setup.py
     test_content = get_test_text(project_name)
     
     test_file = open(test_path, 'w')
@@ -48,8 +48,10 @@ def write_inits(project_name, root_dir):
     print_file(project_init_path)
     
 def print_file(path, prefix = ' ++++++'):
-    print "create: %s %s" % (prefix, os.path.abspath(path))
-    
+    print "create: {prefix} {path_}".format(
+        prefix=prefix,
+        path_=os.path.abspath(path))
+
 def get_file_path(root_dir, sub_dir, filename):
     if sub_dir == None: #In case we're writing directly to the root directory
         return os.path.normpath(os.path.join(root_dir, filename))
@@ -74,20 +76,20 @@ config = {
     'author_email': 'My email.',
     'version': '0.1',
     'install_requires': ['nose'],
-    'packages': ['%s'],
+    'packages': ['{PROJECT}'],
     'scripts': [],
-    'name': 'projectname'
+    'name': '{PROJECT}'
 }
 
 setup(**config)
-""" % project_name
+""".format(PROJECT=project_name)
 
 def get_test_text(project_name):
     """Again, quite ghetto and can probably be improved, but it works"""
     
     return """
 from nose.tools import *
-import %s
+import {PROJECT}
 
 def setup():
     print "SETUP!"
@@ -97,4 +99,4 @@ def teardown():
 
 def test_basic():
     print "I RAN!"
-    """ % project_name
+    """.format(PROJECT=project_name)
