@@ -20,13 +20,17 @@ Both @setup.py@ and @[projectname]_tests.py@ are set up automatically to referen
 
 h2. Installing Scaffold
 
-You can view the scaffold package on PyPi here: "http://pypi.python.org/pypi/Scaffold/0.1.2":http://pypi.python.org/pypi/Scaffold/0.1.2
+You can view the scaffold package on PyPi here: "http://pypi.python.org/pypi/Scaffold/0.1.3":http://pypi.python.org/pypi/Scaffold/0.1.3
 
 To install, simply use @pip install scaffold@
 
 h2. Running Scaffold
 
-Scaffold installs itself as an executable Python script, so just enter this on your command line:
+Scaffold installs itself as an executable Python script, so just enter the @pyscaffold@ command on your favorite terminal:
+
+<pre>pyscaffold -p "projectname" [-d {base directory}]</pre>
+
+You can also run scaffold as a python module if needed:
 
 <pre>python -m scaffold -p "projectname" [-d {base directory}]</pre>
 
@@ -36,9 +40,9 @@ h3. Sample Usage:
 
 Just to give you an idea of what works and what doesn't...
 
-<pre>python -m scaffold -p "http-utils" -d /c/repositories/
-python -m scaffold -p "mutliplex-py"
-python -m scaffold -p "lazarus" -d ../</pre>
+<pre>pyscaffold -p "http-utils" -d /c/repositories/
+pyscaffold -p "mutliplex-py"
+pyscaffold -p "lazarus" -d ../</pre>
 
 
 h2. License
