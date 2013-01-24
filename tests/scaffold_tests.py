@@ -7,10 +7,10 @@ target_dir = os.path.normpath(os.path.join(os.getcwd(),"testcruft"))
 
 def setup():
     os.mkdir(target_dir) #Create a temporary directory that we will delete later upon test completion
-    print "root test directory: %s" % target_dir
+    print "root test directory: {dir}".format(dir=target_dir)
 
 def teardown():
-    print "attempting to tear down %s" % target_dir    
+    print "attempting to tear down {dir}".format(dir=target_dir)
     shutil.rmtree(target_dir) #Recursively deletes the directory and all of its contents
 
 def test_create_folder_path():
@@ -45,8 +45,8 @@ def test_create_test_files():
     projectfolders.create_folders(project_name, target_dir) #Create the project folders
     project_root = projectfolders.create_path(target_dir, project_name)
     projectfiles.write_tests(project_name, project_root)
-    
-    assert_file_exists(project_root, "tests", "%s_tests.py" % project_name)
+
+    assert_file_exists(project_root, "tests", "{project_name}_tests.py".format(project_name=project_name))
 
 def test_create_setup_file():
     project_name = "hipster-tears"
@@ -65,7 +65,7 @@ def test_create_all_files():
     
     assert_file_exists(project_root, "tests", "__init__.py")
     assert_file_exists(project_root, project_name, "__init__.py")
-    assert_file_exists(project_root, "tests", "%s_tests.py" % project_name)
+    assert_file_exists(project_root, "tests", "{project_name}_tests.py".format(project_name=project_name))
     assert_file_exists(project_root, None, "setup.py")
 
 def assert_folder_exists(target_dir, sub_dir):
