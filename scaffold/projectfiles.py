@@ -61,14 +61,13 @@ def get_file_path(root_dir, sub_dir, filename):
 
 def get_setup_text(project_name):
     """This is quite ghetto, and can probably be improved"""
-    
-    return """
+    setup_text = """
 try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
 
-config = {
+config = {{
     'description': 'My Project',
     'author': 'My Name',
     'url': 'URL to get it at.',
@@ -76,13 +75,15 @@ config = {
     'author_email': 'My email.',
     'version': '0.1',
     'install_requires': ['nose'],
-    'packages': ['{PROJECT}'],
+    'packages': ['{project}'],
     'scripts': [],
-    'name': '{PROJECT}'
-}
+    'name': 'projectname'
+}}
 
 setup(**config)
-""".format(PROJECT=project_name)
+""".format(project=project_name)
+
+    return setup_text
 
 def get_test_text(project_name):
     """Again, quite ghetto and can probably be improved, but it works"""
