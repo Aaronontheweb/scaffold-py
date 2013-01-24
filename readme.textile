@@ -28,7 +28,7 @@ h2. Running Scaffold
 
 Scaffold installs itself as an executable Python script, so just enter this on your command line:
 
-<pre>pyscaffold -p "projectname" [-d {base directory}]</pre>
+<pre>python -m scaffold -p "projectname" [-d {base directory}]</pre>
 
 The @-p@ parameter is the name of your project and is a required field. If you don't specify a base directory with the @-d@ parameter, scaffold will assume that you want to create your project skeleton in your current working directory.
 
@@ -36,9 +36,9 @@ h3. Sample Usage:
 
 Just to give you an idea of what works and what doesn't...
 
-<pre>pyscaffold -p "http-utils" -d /c/repositories/
-pyscaffold -p "mutliplex-py"
-pyscaffold -p "lazarus" -d ../</pre>
+<pre>python -m scaffold -p "http-utils" -d /c/repositories/
+python -m scaffold -p "mutliplex-py"
+python -m scaffold -p "lazarus" -d ../</pre>
 
 
 h2. License
