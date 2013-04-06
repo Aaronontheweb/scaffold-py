@@ -44,6 +44,13 @@ Just to give you an idea of what works and what doesn't...
 pyscaffold -p "mutliplex-py"
 pyscaffold -p "lazarus" -d ../</pre>
 
+h2. Virtualenvwrapper support
+
+Alternatively, if (the excelent) "virtualenvwrapper":http://virtualenvwrapper.readthedocs.org is installed, Scaffold also works as a "project template":https://virtualenvwrapper.readthedocs.org/en/latest/projects.html#using-templates named <pre>base</pre>. So you could call:
+
+<pre>mkproject -t base projectname</pre>
+
+Then virtualenvwrapper will create the virtualenv and the project root and Scaffold will do the rest.
 
 h2. License
 
