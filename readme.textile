@@ -46,7 +46,7 @@ pyscaffold -p "lazarus" -d ../</pre>
 
 h2. Virtualenvwrapper support
 
-Alternatively, if (the excelent) "virtualenvwrapper":http://virtualenvwrapper.readthedocs.org is installed, Scaffold also works as a "project template":https://virtualenvwrapper.readthedocs.org/en/latest/projects.html#using-templates named _base_. So you could run:
+Alternatively, if (the excellent) "virtualenvwrapper":http://virtualenvwrapper.readthedocs.org is installed, Scaffold also works as a "project template":https://virtualenvwrapper.readthedocs.org/en/latest/projects.html#using-templates named _base_. So you could run:
 
 <pre>mkproject -t base projectname</pre>
 
