@@ -18,8 +18,13 @@ config = {
     'entry_points': {
         'console_scripts': [
             'pyscaffold = scaffold.__main__:main',
-        ]
+        ],
+        'virtualenvwrapper.project.template': [
+            'base = scaffold.virtualenvwrapper:template',
+        ],
     }
+
+
 }
 
 setup(**config)
