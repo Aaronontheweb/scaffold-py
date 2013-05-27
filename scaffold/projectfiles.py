@@ -48,9 +48,9 @@ def write_inits(project_name, root_dir):
     print_file(project_init_path)
     
 def print_file(path, prefix = ' ++++++'):
-    print "create: {prefix} {path_}".format(
+    print("create: {prefix} {path_}".format(
         prefix=prefix,
-        path_=os.path.abspath(path))
+        path_=os.path.abspath(path)))
 
 def get_file_path(root_dir, sub_dir, filename):
     if sub_dir == None: #In case we're writing directly to the root directory
@@ -93,11 +93,11 @@ from nose.tools import *
 import {PROJECT}
 
 def setup():
-    print "SETUP!"
+    print("SETUP!")
 
 def teardown():
-    print "TEAR DOWN!"
+    print("TEAR DOWN!")
 
 def test_basic():
-    print "I RAN!"
+    print("I RAN!")
     """.format(PROJECT=project_name)
