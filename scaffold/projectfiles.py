@@ -1,6 +1,7 @@
 """An extremely ghetto, but functional way of creating the necessary .py files for the project setup"""
 import os
 import projectfolders
+import subprocess
 
 def create_files(project_name, root_dir):
     """Creates all of the necessary files for a given project skeleton"""
@@ -61,6 +62,8 @@ def get_file_path(root_dir, sub_dir, filename):
 
 def get_setup_text(project_name):
     """This is quite ghetto, and can probably be improved"""
+    author = get_user_name_from_git() or "My Name"
+    author_email = get_user_email_from_git() or "My email."
     setup_text = """
 try:
     from setuptools import setup
@@ -69,19 +72,19 @@ except ImportError:
 
 config = {{
     'description': 'My Project',
-    'author': 'My Name',
+    'author': '{author}',
     'url': 'URL to get it at.',
     'download_url': 'Where to download it.',
-    'author_email': 'My email.',
+    'author_email': '{author_email}',
     'version': '0.1',
     'install_requires': ['nose'],
     'packages': ['{project}'],
     'scripts': [],
-    'name': 'projectname'
+    'name': '{project}'
 }}
 
 setup(**config)
-""".format(project=project_name)
+""".format(project=project_name, author=author, author_email=author_email)
 
     return setup_text
 
@@ -101,3 +104,21 @@ def teardown():
 def test_basic():
     print("I RAN!")
     """.format(PROJECT=project_name)
+
+def get_user_name_from_git():
+    try:
+        git_process = subprocess.Popen(['git', 'config', 'user.name'], stdout=subprocess.PIPE
+                                                                     , stderr=subprocess.PIPE)
+        user_name, err = git_process.communicate()
+        return user_name.rstrip()
+    except OSError:
+        return None
+
+def get_user_email_from_git():
+    try:
+        git_process = subprocess.Popen(['git', 'config', 'user.email'], stdout=subprocess.PIPE
+                                                                      , stderr=subprocess.PIPE)
+        user_email, err = git_process.communicate()
+        return user_email.rstrip()
+    except OSError:
+        return None
