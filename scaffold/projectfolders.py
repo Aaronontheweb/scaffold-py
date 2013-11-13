@@ -45,4 +45,4 @@ def make_folder(path, prefix=''):
 
 def create_path(current_directory, new_folder_name):
     """Gets the absolute path of the new folder we're going to create"""
-    return os.path.join(os.path.normpath(current_directory), new_folder_name)
+    return os.path.join(os.path.abspath(current_directory), new_folder_name)
