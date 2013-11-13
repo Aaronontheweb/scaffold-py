@@ -17,15 +17,17 @@ def create_folders(project_name, current_directory):
     else:
         make_folder(root_dir) #Create the root directory
 
-    name_dir = create_path(root_dir, project_name)
-    bin_dir = create_path(root_dir, "bin")
-    tests_dir = create_path(root_dir, "tests")
-    docs_dir = create_path(root_dir, "docs")
-
-    make_folder(name_dir, ' +++') #Create the NAMEd directory
-    make_folder(bin_dir, ' +++') #Create the bin directory
-    make_folder(tests_dir, ' +++') #Create the tests directory
-    make_folder(docs_dir, ' +++') #Create the docs directory
+    dirnames = (
+        project_name,
+        'bin',
+        'tests',
+        'docs' 
+        )
+    
+    #Create all the other directories
+    for item in dirnames:
+        directory = create_path(root_dir, item)
+        make_folder(directory, ' +++')
 
 def make_folder(path, prefix=''):
     """Creates the directory and prints a message letting the user know that it's been made"""
