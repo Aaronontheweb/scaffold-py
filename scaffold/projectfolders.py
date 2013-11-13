@@ -31,8 +31,10 @@ def make_folder(path, prefix=''):
     """Creates the directory and prints a message letting the user know that it's been made"""
     os.mkdir(path)
 
-        raise IOError(000, 'Unable to create root directory %s. Unknown error!' % path, '')
     if os.path.exists(path) is False: #If we were unable to make the directory for some reason...
+        raise IOError(000, 
+            'Unable to create root directory {path_}. Unknown error!'.format(path_=path), 
+            '')
 
     print "create: {prefix} {path_}".format(
         prefix=prefix,
