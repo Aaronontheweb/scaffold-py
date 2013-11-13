@@ -15,20 +15,16 @@ def write_setup(project_name, root_dir):
     """Writes a default setup.py file"""
     setup_path = get_file_path(root_dir, None, "setup.py") #Get the path for setup.py
     setup_content = get_setup_text(project_name)
-    
-    setup_file = open(setup_path, 'w')
-    setup_file.write(setup_content)
-    setup_file.close()
+    with open(setup_path, 'w') as setup_file:
+        setup_file.write(setup_content)
     print_file(setup_path, " +++")
     
 def write_tests(project_name, root_dir):
     test_path = get_file_path(root_dir, "tests", "{project_name}_tests.py".format(project_name=project_name)) #Get the path for setup.py
     """Writes tests/PROJECT_NAME_tests.py file to disk"""
     test_content = get_test_text(project_name)
-    
-    test_file = open(test_path, 'w')
-    test_file.write(test_content)
-    test_file.close()
+    with open(test_path, 'w') as test_file:
+        test_file.write(test_content)
     print_file(test_path)
 
 def write_inits(project_name, root_dir):
