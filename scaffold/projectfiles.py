@@ -61,56 +61,57 @@ def get_file_path(root_dir, sub_dir, filename):
         return os.path.normpath(os.path.join(root_dir, filename))
     
     #Otherwise, build out the appropriate path for the subdirectory
-    filepath = os.path.join(projectfolders.create_path(root_dir, sub_dir), filename)
+    path_ = projectfolders.create_path(root_dir, sub_dir)
+    filepath = os.path.join(path_, filename)
     return os.path.normpath(filepath)
 
 def get_setup_text(project_name):
     #This is quite ghetto, and can probably be improved
     setup_text = """
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+        try:
+            from setuptools import setup
+        except ImportError:
+            from distutils.core import setup
 
-config = {{
-    'description': 'My Project',
-    'author': '{author}',
-    'url': 'URL to get it at.',
-    'download_url': 'Where to download it.',
-    'author_email': '{author_email}',
-    'version': '0.1',
-    'install_requires': ['nose'],
-    'packages': ['{project}'],
-    'scripts': [],
-    'name': '{project}'
-}}
+        config = {{
+            'description': 'My Project',
+            'author': '{author}',
+            'url': 'URL to get it at.',
+            'download_url': 'Where to download it.',
+            'author_email': '{author_email}',
+            'version': '0.1',
+            'install_requires': ['nose'],
+            'packages': ['{project}'],
+            'scripts': [],
+            'name': '{project}'
+        }}
 
-setup(**config)
+        setup(**config)
 
-""".format(
-    project = project_name, 
-    author = get_user_name_from_git() or "My Name", 
-    author_email = get_user_email_from_git() or "My email.")
+    """.format(
+            project = project_name, 
+            author = get_user_name_from_git() or "My Name", 
+            author_email = get_user_email_from_git() or "My email.")
 
-    return setup_text
+    return dedent(setup_text)
 
 def get_test_text(project_name):
     #Again, quite ghetto and can probably be improved, but it works
     test_text = """
-from nose.tools import *
-import {PROJECT}
+        from nose.tools import *
+        import {PROJECT}
 
-def setup():
-    print("SETUP!")
+        def setup():
+            print("SETUP!")
 
-def teardown():
-    print("TEAR DOWN!")
+        def teardown():
+            print("TEAR DOWN!")
 
-def test_basic():
-    print("I RAN!")
+        def test_basic():
+            print("I RAN!")
     """.format(PROJECT=project_name)
     
-    return test_text
+    return dedent(test_text)
 
 def get_user_name_from_git():
     try:
