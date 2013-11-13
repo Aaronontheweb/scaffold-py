@@ -1,6 +1,7 @@
 """An extremely ghetto (but functional) way to create the necessary .py files for the scaffold"""
 import os
 import projectfolders
+from textwrap import dedent
 import subprocess
 
 def create_files(project_name, root_dir):
