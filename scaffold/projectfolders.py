@@ -5,7 +5,7 @@ def create_folders(project_name, current_directory):
     """Creates all of the requisite folders in the project skeleton"""
     root_dir = create_path(current_directory, project_name)
 
-    if (os.path.exists(root_dir)):
+    if os.path.exists(root_dir):
         if os.listdir(root_dir):
              #If the path already exists and it is not empty, raise an error
             raise IOError(000,
@@ -31,8 +31,8 @@ def make_folder(path, prefix = ''):
     """Creates the directory and prints a message letting the user know that it's been made"""
     os.mkdir(path)
 
-    if(os.path.exists(path) == False): #If we were unable to make the directory for some reason...
         raise IOError(000, 'Unable to create root directory %s. Unknown error!' % path, '')
+    if os.path.exists(path) is False: #If we were unable to make the directory for some reason...
 
     print "create: {prefix} {path_}".format(
         prefix=prefix,
