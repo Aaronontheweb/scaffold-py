@@ -27,7 +27,7 @@ def create_folders(project_name, current_directory):
     make_folder(tests_dir, ' +++') #Create the tests directory
     make_folder(docs_dir, ' +++') #Create the docs directory
 
-def make_folder(path, prefix = ''):
+def make_folder(path, prefix=''):
     """Creates the directory and prints a message letting the user know that it's been made"""
     os.mkdir(path)
 

@@ -48,7 +48,7 @@ def write_inits(project_name, root_dir):
     project_init.close()
     print_file(project_init_path)
     
-def print_file(path, prefix = ' ++++++'):
+def print_file(path, prefix=' ++++++'):
     print("create: {prefix} {path_}".format(
         prefix=prefix,
         path_=os.path.abspath(path)))
