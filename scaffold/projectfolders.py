@@ -1,6 +1,7 @@
 """Creates the folder skeleton for a new Python project"""
 import os
 from textwrap import dedent
+
 def create_folders(project_name, current_directory):
     """Creates all of the requisite folders in the project skeleton"""
     root_dir = create_path(current_directory, project_name)
