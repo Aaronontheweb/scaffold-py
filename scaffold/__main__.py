@@ -14,7 +14,7 @@ args = parser.parse_args() #Unpack the commandline arguments
 
 cur_dir = os.getcwd() #Get the current working directory as our default root project directory
 
-if(args.dir != None): #If the user set an explicit output directory
+if args.dir != None: #If the user set an explicit output directory
     cur_dir = args.dir[0]
 
 def main():
