@@ -2,8 +2,7 @@
 in Learn Python the Hard Way Exercise #46 (http://learnpythonthehardway.org/book/ex46.html)"""
 
 import argparse
-import projectfolders
-import projectfiles
+from scaffold import projectfolders, projectfiles
 import os
 
 parser = argparse.ArgumentParser(description='Scaffolding tool for simple Python projects', epilog='Report any issues to [Github url]')
@@ -21,8 +20,8 @@ def main():
     try:
         projectfolders.create_folders(args.project[0], cur_dir) #Creates all of the project folders we need
         projectfiles.create_files(args.project[0], cur_dir) #Creates all of the project files we need
-    except IOError as (errno, strerror):
-        print strerror
+    except IOError as e:
+        print(e.strerror)
 
 if __name__ == "__main__":
     main()
