@@ -119,7 +119,7 @@ def get_user_name_from_git():
         git_process = subprocess.Popen(['git', 'config', 'user.name'], stdout=subprocess.PIPE
                                                                      , stderr=subprocess.PIPE)
         user_name, err = git_process.communicate()
-        return user_name.rstrip()
+        return user_name.rstrip().decode()
     except OSError:
         return None
 
@@ -128,6 +128,6 @@ def get_user_email_from_git():
         git_process = subprocess.Popen(['git', 'config', 'user.email'], stdout=subprocess.PIPE
                                                                       , stderr=subprocess.PIPE)
         user_email, err = git_process.communicate()
-        return user_email.rstrip()
+        return user_email.rstrip().decode()
     except OSError:
         return None
